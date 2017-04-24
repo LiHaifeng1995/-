@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link type="text/css" rel="stylesheet" href="css/bootstrap.css">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!--<link href="stylesheets/site.css" rel="stylesheet">-->
+    <!--移动端版本兼容 -->
+    <script type="text/javascript">
+        //        var phoneWidth =  parseInt(window.screen.width);
+        //        var phoneScale = phoneWidth/640;
+        //        var ua = navigator.userAgent;
+        //        if (/Android (\d+\.\d+)/.test(ua)){
+        //            var version = parseFloat(RegExp.$1);
+        //            if(version>2.3){
+        //                document.write('<meta name="viewport" content="width=640, minimum-scale = '+phoneScale+', maximum-scale = '+phoneScale+', target-densitydpi=device-dpi">');
+        //            }else{
+        //                document.write('<meta name="viewport" content="width=640, target-densitydpi=device-dpi">');
+        //            }
+        //        } else {
+        //            document.write('<meta name="viewport" content="width=640, user-scalable=no, target-densitydpi=device-dpi">');
+        //        }
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <!--移动端版本兼容 end -->
+    <script src="js/mui.js"></script>
+    <link href="css/mui.css" rel="stylesheet"/>
+    <script type="text/javascript" charset="utf-8">
+
+    </script>
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="">
+    <div class="row">
+        <div class>
+            <input type="text" id="search" placeholder="搜搜看">
+           <span>
+               <img src="image/search_green.png">
+           </span>
+        </div>
+    </div>
+
+    <div class="row container" style="margin-top: 3px;">
+        <div class="col-xs-3 menu">
+            <a href="">
+                <img class="img" src="image/shouji.png">
+                <p>手机</p>
+            </a>
+        </div>
+        <div class="col-xs-3 menu">
+            <a>
+                <img src="image/school-card.png">
+                <p>一卡通</p>
+            </a>
+        </div>
+        <div class="col-xs-3 menu">
+            <a>
+                <img src="image/IDcard.png">
+                <p>身份证</p>
+            </a>
+        </div>
+        <div class="col-xs-3 menu">
+            <a>
+                <img src="image/bank.png">
+                <p>银行卡</p>
+            </a>
+        </div>
+    </div>
+    <div class="row container">
+        <div class="col-xs-3 menu">
+            <a>
+                <img class="img" src="image/key.png">
+                <p>钥匙</p>
+            </a>
+        </div>
+        <div class="col-xs-3 menu">
+            <a>
+                <img src="image/schoolbag.png">
+                <p>书包</p>
+            </a>
+        </div>
+        <div class="col-xs-3 menu">
+            <a>
+                <img src="image/earphone.png">
+                <p>数码</p>
+            </a>
+        </div>
+        <div class="col-xs-3 menu">
+            <a>
+                <img src="image/other.png">
+                <p>其他</p>
+            </a>
+        </div>
+    </div>
+
+</div>
+<div class="mui-content">
+    <!--下拉刷新容器-->
+    <div id="pullrefresh" class="mui-content mui-scroll-wrapper">
+        <div class="mui-scroll">
+            <!--数据列表-->
+            <ul class="mui-table-view mui-table-view-chevron">
+
+            </ul>
+        </div>
+    </div>
+</div>
+<!--<div class="navbar-fixed-bottom">-->
+
+    <!--<div class="row container" >-->
+        <!--<a class="col-xs-2 fn-marr4" href="首页.html">-->
+            <!--<img src="image/cry.png">-->
+            <!--<p>失物</p>-->
+        <!--</a>-->
+        <!--<div class="col-xs-2 fn-marr4" href="首页.html">-->
+
+            <!--<img src="image/bags.png">-->
+            <!--<p>招领</p>-->
+
+        <!--</div>-->
+        <!--<div class="col-xs-2 fn-marr4" href="发布.html">-->
+
+            <!--<img src="image/add.png">-->
+            <!--<p>发布</p>-->
+
+        <!--</div>-->
+        <!--<div class="col-xs-2 fn-marr4" href="搜索.html">-->
+
+            <!--<img src="image/search.png">-->
+            <!--<p>搜索</p>-->
+
+        <!--</div>-->
+        <!--<div class="col-xs-2" href="用户.html"-->
+        <!--id="test">-->
+
+            <!--<img src="image/personal-center.png">-->
+            <!--<p>用户</p>-->
+
+        <!--</div>-->
+    <!--</div>-->
+
+<!--</div>-->
+<nav class="mui-bar mui-bar-tab">
+    <a class="mui-tab-item mui-active" href="首页.html">
+        <span class="mui-icon ">
+            <img src="image/cry.png">
+        </span>
+        <span class="mui-tab-label">失物</span>
+    </a>
+    <a class="mui-tab-item" href="首页.html">
+        <span class="mui-icon">
+            <span class="mui-badge">9</span>
+            <img src="image/bags.png">
+        </span>
+        <span class="mui-tab-label">招领</span>
+    </a>
+    <a class="mui-tab-item" href="发布.html">
+        <span class="mui-icon">
+            <img src="image/add.png">
+        </span>
+        <span class="mui-tab-label">新增</span>
+    </a>
+    <a class="mui-tab-item" href="搜索.html">
+        <span class="mui-icon ">
+            <img src="image/search.png">
+        </span>
+        <span class="mui-tab-label">搜索</span>
+    </a>
+    <a class="mui-tab-item" href="用户.html"
+    id="test">
+        <span class="mui-icon">
+            <img src="image/personal-center.png">
+        </span>
+        <span class="mui-tab-label">用户</span>
+    </a>
+</nav>
+</body>
+<script type="text/javascript" src="js/jquery-1.8.2.min.js"></script>
+<script type="text/javascript">
+    $('#search').click(function () {
+        window.location = '搜索.html';
+    });
+    $('.mui-tab-item').click(function (event) {
+        console.log($(this).attr('href'));
+        window.location = $(this).attr('href');
+    });
+</script>
+<script>
+    mui.init({
+        pullRefresh: {
+            container: '#pullrefresh',
+            down: {
+                callback: pulldownRefresh
+            },
+            up: {
+                contentrefresh: '正在加载...',
+                callback: pullupRefresh
+            }
+        }
+    });
+    /**
+     * 下拉刷新具体业务实现
+     */
+    function pulldownRefresh() {
+        setTimeout(function() {
+            var table = document.body.querySelector('.mui-table-view');
+            var cells = document.body.querySelectorAll('.mui-table-view-cell');
+            for (var i = cells.length, len = i + 3; i < len; i++) {
+                var li = document.createElement('li');
+                li.className = 'mui-table-view-cell';
+                li.innerHTML = '<a class="mui-navigate-right">Item ' + (i + 1) + '</a>';
+                //下拉刷新，新纪录插到最前面；
+                table.insertBefore(li, table.firstChild);
+            }
+            mui('#pullrefresh').pullRefresh().endPulldownToRefresh(); //refresh completed
+        }, 1500);
+    }
+    var count = 0;
+    /**
+     * 上拉加载具体业务实现
+     */
+    function pullupRefresh() {
+        setTimeout(function() {
+            mui('#pullrefresh').pullRefresh().endPullupToRefresh((++count > 2)); //参数为true代表没有更多数据了。
+            var table = document.body.querySelector('.mui-table-view');
+            var cells = document.body.querySelectorAll('.mui-table-view-cell');
+            for (var i = cells.length, len = i + 20; i < len; i++) {
+                var li = document.createElement('li');
+                li.className = 'mui-table-view-cell';
+                li.innerHTML = '<a class="mui-navigate-right">Item ' + (i + 1) + '</a>';
+                table.appendChild(li);
+            }
+        }, 1500);
+    }
+    if (mui.os.plus) {
+        mui.plusReady(function() {
+            setTimeout(function() {
+                mui('#pullrefresh').pullRefresh().pullupLoading();
+            }, 1000);
+
+        });
+    } else {
+        mui.ready(function() {
+            mui('#pullrefresh').pullRefresh().pullupLoading();
+        });
+    }
+</script>
+</html>

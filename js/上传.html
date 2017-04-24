@@ -1,0 +1,232 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no,minimum-scale=1.0,maximum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="MobileOptimized" content="320">
+    <meta name="format-detection" content="telephone=no" />
+    <link rel="stylesheet" type="text/css" href="/Public/mobile/lostandfound/css/2h.css">
+    <title>深圳大学失物招领</title>
+    <meta name="keywords" content="失物招领,大学,超级大学,大学失物招领,校园失物招领,闲置,大学生失物招领">
+    <meta name="description" content="超级大学是最安全方便的校园失物招领平台、覆盖多所大学的大学生。可以找到你在校园里丢失的手机、自行车、一卡通、身份证、图书、球拍等物品信息，超级大学让失物招领不再困难">
+    <div style="display: none;">
+        <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1258097459'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1258097459%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+    </div>
+
+    <script type="text/javascript" src="/Public/common/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/Public/mobile/ershou/js/zepto-1.0.0.js"></script>
+    <script type="text/javascript" src="/Public/common/js/ajaxfileupload.js"></script>
+    <link rel="Shortcut Icon" href="/Public/common/img/logo.ico">
+    <script type="text/javascript">
+        // 这个图片展示规则是宽大于高按高100%截宽，高大于宽按宽100%截高；默认是宽100%截高
+        window.checkimg = function(obj) {
+            if (obj.width > obj.height) {
+                obj.style.width = 'auto';
+                obj.style.height = '100%';
+            }
+        }
+        $(function() {
+            // 如果屏幕宽度小于375px，按320px宽的页面缩小
+            if (window.innerWidth < 375) {
+                $('.picture .images').addClass('forp4');
+            }
+            var ua = window.navigator.userAgent;
+            if (!(/\(i[^;]+;( U;)? CPU.+Mac OS X/).test(ua) && ua.indexOf('Android') == -1 && ua.indexOf('Linux') == -1) {
+                $('body').addClass('isPC');
+            }
+            $('#selectType').click(function() {
+                $('.sky').show();
+                $('.sky .mark').show();
+                $('.typemw').show();
+                $('html').css({
+                    'height': '100%',
+                    'overflow': 'hidden'
+                });
+            });
+            $('.mw .mwclose').click(function(e) {
+                $(e.currentTypt).closest('.mw').hide();
+                $('.sky').hide();
+                $('.sky .mark').hide();
+                $('html').css({
+                    'height': 'auto',
+                    'overflow': 'auto'
+                });
+            });
+            $(".submit").click(function(){
+                $(".frmerr").removeClass("frmerr");
+                jd = true;
+                if($("input[name='imgs[]']").length<1&&$("input[name='which']:checked").val()==2){
+                    alert("请至少选择一张图片");
+                    jd = false;
+                }
+                $("input").each(function(index,val){
+
+                    //alert($(this).val());
+                    if($(this).closest(".frm").length>0){
+                        if($(this).attr("name")!=="tel"){
+                            if($(this).val()==""){
+                                $(this).closest(".frm").addClass("frmerr");
+                                jd = false;
+                            }
+                        }
+                    }
+                });
+                if(jd){
+                    $("#form").submit();
+                }
+            });
+            $(".mwc ul li a").click(function() {
+                $(".selectvalue").text($(this).text());
+                $("input[name='type']").val($(this).closest("li").index()+1);
+                $(this).closest('.mw').hide();
+                $('.sky').hide();
+                $('.sky .mark').hide();
+                $('html').css({
+                    'height': 'auto',
+                    'overflow': 'auto'
+                });
+            });
+            $("body").on("click",".iclose",function(){
+                $(this).closest(".image").remove();
+            });
+            $(".which").on("click","label",function(){
+                if($(this).index()==0){
+                    $(".place").text("丢失地点");
+                }else{
+                    $(".place").text("捡到地点");
+                }
+            })
+            $("body").on("change", "#file_input", function() {
+                $.ajaxFileUpload({
+                    url: '/Lostandfound/ajaxfile',
+                    type: 'post',
+                    secureuri: false, //一般设置为false
+                    fileElementId: 'file_input', // 上传文件的id、name属性名
+                    dataType: 'json', //返回值类型，一般设置为json、application/json
+                    success: function(data, status) {
+                        if (data.status == 1) {
+                            $.each(data.paths, function(index,val){
+                                if($(".upimg").length>=4){
+                                    alert("最多只能选择四张图片！");
+                                    return false;
+                                }
+                                $(".addimg").before('<div class="image"><a href="#"><i class="i iclose"></i></a><i class="img"><img src="/Uploads/mobile/lost/' + val +'"onload="window.checkimg(this)"></i><input name="imgs[]" class="upimg" hidden value="'+val+'"></div>');
+                            });
+                        } else {
+                            alert("上传失败!");
+                        }
+                    },
+                    error: function(data, status, e) {
+                        alert(e);
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+
+<body class="body1">
+<form method="post" action="/Lostandfound/add_goods" id="form">
+    <section class="head">
+        <p class="opt"><a href="#" class="submit">完成</a></p>
+        <a href="javascript:history.go(-1);" class="back"><i class="i iarr"></i></a>
+        <span class="t2">发布</span>
+    </section>
+    <section class="picture">
+        <div class="images">
+                <span class="addimg">
+            <i class="i iadd"><i class="i i1"></i><i class="i i2"></i></i>
+            <input type="file" multiple="multiple" id="file_input" name="file[]">
+                </span>
+        </div>
+        <p class="tip">最多可上传4张图片</p>
+    </section>
+    <section class="form">
+        <!-- 哪个frm要出错误提示，就在这个frm上加frmerr类 -->
+        <div class="frm ">
+            <p class="frmt">寻找类型</p>
+            <div class="which">
+                <label>
+                    <input type="radio" name="which" value="1" checked>寻物
+                </label>
+                <label>
+                    <input type="radio" name="which" value="2">寻主
+                </label>
+            </div>
+            <p class="frmtip">这里要填的</p>
+        </div>
+        <div class="frm ">
+            <p class="frmt">物品名称</p>
+            <div class="frmc">
+                <input type="text" placeholder="最多25个字" name="name" maxlength="25">
+            </div>
+            <p class="frmtip">这里要填的</p>
+        </div>
+        <div class="frm">
+            <p class="frmt">物品描述</p>
+            <div class="frmc">
+                <input type="text" name="describe" multiple placeholder="请对物品进行描述">
+            </div>
+            <p class="frmtip">这里要填的</p>
+        </div>
+        <div class="frm">
+            <p class="frmt place">丢失地点</p>
+            <div class="frmc">
+                <input type="text" name="place">
+            </div>
+            <p class="frmtip">这里要填的</p>
+        </div>
+        <div class="frm">
+            <p class="frmt select">选择分类</p>
+            <div class="frmc"><b id="selectType"><span class="selectvalue"></span><i class="i iarrow"></i></b></div>
+            <input type="hidden" name="type">
+            <p class="frmtip">这里要填的</p>
+        </div>
+        <div class="frm">
+            <p class="frmt">QQ号</p>
+            <div class="frmc">
+                <input type="text" name="qq" value="">
+            </div>
+            <p class="frmtip">这里要填的</p>
+        </div>
+        <div class="frm">
+            <p class="frmt">手机号</p>
+            <div class="frmc">
+                <input type="text" name="tel" value="" placeholder="选填">
+            </div>
+        </div>
+</form>
+</section>
+<div class="sky">
+    <div class="mark"></div>
+    <div class="mw typemw">
+        <div class="mwt">
+            <a href="javascript:;" class="mwclose"><i class="i imwclose"></i></a>
+            <p>选择分类</p>
+        </div>
+        <div class="mwc">
+            <ul>
+                <li><a href="javascript:;">手机</a></li>
+                <li><a href="javascript:;">一卡通</a></li>
+                <li><a href="javascript:;">身份证</a></li>
+                <li><a href="javascript:;">银行卡</a></li>
+                <li><a href="javascript:;">书</a></li>
+                <li><a href="javascript:;">钥匙</a></li>
+                <li><a href="javascript:;">包包</a></li>
+                <li><a href="javascript:;">衣帽</a></li>
+                <li><a href="javascript:;">校园代步</a></li>
+                <li><a href="javascript:;">运动健身</a></li>
+                <li><a href="javascript:;">数码配件</a></li>
+                <li><a href="javascript:;">其他</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<section class="footer">
+    <span>©2014-2015</span><span>超级大学</span><span>版权所有</span>
+</section>
+</body>
+
+</html>

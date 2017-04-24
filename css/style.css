@@ -1,0 +1,88 @@
+* { touch-action: none; }
+body{
+    background: white;
+}
+.container{
+    padding: 0;
+}
+.container  img{
+  width: 24px;
+  height: 24px;
+}
+.form-control{
+  height: 44px;
+}
+.container .form-inline{
+    margin-left: -15px;
+    margin-right: -15px;
+}
+
+.menu {
+    width: 25%;
+    height: 50px;
+    background: #3cc2a5;
+    float: left;
+}
+.menu a{
+    display: block;
+    text-align: center;
+}
+.menu:nth-child(odd) {
+    background: #24b19c;
+}
+.menu p{
+    color: white;
+}
+.navbar-fixed-bottom{
+    background: #3cc2a5;
+}
+.navbar-fixed-bottom p{
+    color: white;
+    margin-bottom: 0;
+}
+.fn-wid20{
+    width: 20%;
+    display: inline-block;
+}
+.fn-marr4{
+    margin-right: 4%;
+}
+
+#search{
+    margin-bottom: 0;
+}
+#search + span{
+    position: absolute;
+    right: 22px;
+    top: 8px;
+}
+#search + span img{
+    width: 20px;
+    height: 20px;
+
+}
+.mui-bar{
+    position: static;
+}
+label{
+    font-weight: normal;
+}
+.mui-scroll-wrapper{
+    top: 143px;
+}
+.row{
+    margin-left: 0;
+    margin-right: 0;
+    width:100%;
+}
+.mui-bar-tab{
+    background: #3CC3A5;
+    position: fixed;
+}
+.mui-bar-tab img {
+    width: 23px;
+    height: 23px;
+}
+.mui-bar-tab .mui-tab-item.mui-active,.mui-bar-tab .mui-tab-item{
+    color: white;
+}
